@@ -15,14 +15,17 @@ class Bike
     $this->type = $type;
     $this->price = $price;
   }
+}
 
-  public function getInfo()
+class ShowInfo
+{
+  public function getInfo(Bike $bike)
   {
-    return "Merk: {$this->merk} | Gear: {$this->gear} | Type: {$this->gear} | Price: {$this->price}";
+    return "Merk: {$bike->merk} | Gear: {$bike->gear} | Type: {$bike->gear} | Price: {$bike->price}";
   }
 }
 
 $bike1 = new Bike('Polygon', 7, 'RELIC20', 1700000);
-$bike_info = $bike1->getInfo();
+$bike_info = new ShowInfo();
 
-echo "<h3>{$bike_info}</h3>";
+echo "<h3>{$bike_info->getInfo($bike1)}</h3>";
